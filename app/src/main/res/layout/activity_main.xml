@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
+    android:background="@drawable/mainbackground"
     android:padding="20dp">
 
     <FrameLayout
@@ -17,18 +18,36 @@
             android:layout_gravity="center"
             android:orientation="vertical">
             <EditText
+                android:id="@+id/userEmail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Your email"/>
-
+                android:background="@color/mainLightColor"
+                android:hint="Your email"
+                android:textColorHint="@color/mainDark"
+                android:paddingLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:alpha="0.7"
+                android:ems="10"
+                />
             <EditText
+                android:id="@+id/userPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Your Password"/>
+                android:hint="Your Password"
+                android:background="@color/mainLightColor"
+                android:textColorHint="@color/mainDark"
+                android:paddingLeft="20dp"
+                android:alpha="0.7"
+                android:ems="10"
+                android:inputType="textPassword"
+                />
         </LinearLayout>
         <Button
+            android:id="@+id/logInButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="@color/mainLightColor"
+            android:textColor="@color/mainDark"
             android:text="Log in"
             android:layout_gravity="bottom"/>
     </FrameLayout>
