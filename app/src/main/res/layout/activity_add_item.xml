@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/itemTitleEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:alpha="0.7"
+                android:background="@color/colorAccent"
+                android:ems="10"
+                android:hint="Enter item title"
+                android:paddingLeft="20dp"
+                android:textColorHint="#000" />
+
+            <EditText
+                android:id="@+id/itemDescriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:alpha="0.7"
+                android:background="@color/colorAccent"
+                android:ems="10"
+                android:hint="Enter item description"
+                android:inputType=""
+                android:paddingLeft="20dp"
+                android:textColorHint="#000"
+                android:layout_marginBottom="20dp"/>
+            <EditText
+                android:id="@+id/itemDateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:alpha="0.7"
+                android:background="@color/colorAccent"
+                android:ems="10"
+                android:hint="Enter create date MM/DD/YYYY"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:textColorHint="#000" />
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/saveItemButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"
+            android:text="Add item"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+
+</LinearLayout>
