@@ -27,7 +27,7 @@ class RecyclerAdapter(private val items: ArrayList<UserModel.Data>, activity: Ma
         fun onBind(){
             itemsModel = items[adapterPosition]
 
-            Glide.with(itemView.userImage).load(itemsModel.avatar)
+            Glide.with(itemView.userImage).load(itemsModel.avatar).into(itemView.userImage)
 
 //            itemView.mainItemImage.setImageResource(itemsModel.image)/**/
             itemView.userFirstName.text = itemsModel.firstName
