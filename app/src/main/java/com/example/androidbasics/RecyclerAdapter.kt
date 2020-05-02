@@ -29,16 +29,10 @@ class RecyclerAdapter(private val items: ArrayList<UserModel.Data>, activity: Ma
 
             Glide.with(itemView.userImage).load(itemsModel.avatar).into(itemView.userImage)
 
-//            itemView.mainItemImage.setImageResource(itemsModel.image)/**/
             itemView.userFirstName.text = itemsModel.firstName
             itemView.userLastName.text = itemsModel.lastName
             itemView.userEmail.text = itemsModel.email
 
-            itemView.setOnLongClickListener {
-                notifyItemRemoved(adapterPosition)
-                true
-            }
         }
-
     }
 }
