@@ -13,14 +13,14 @@ import retrofit2.http.Path
 object DataLoader {
 
     private val retrofitService = Retrofit.Builder()
-        .baseUrl("https://reqres.in/api/")
+        .baseUrl("http://newsapi.org/v2/")
         .addConverterFactory(ScalarsConverterFactory.create())
         .build()
 
     private  var apiService = retrofitService.create<ApiService>(ApiService::class.java)
 
-    fun getRequest(url: String, mainCallBack: MainCallBack){
-        val call = apiService.getRequest(url)
+    fun getRequest(mainCallBack: MainCallBack){
+        val call = apiService.getRequest("top-headlines")
         call.enqueue(callBack(mainCallBack))
     }
 
@@ -38,6 +38,6 @@ object DataLoader {
 }
 
 interface ApiService{
-    @GET("{path}")
+    @GET("{path}?country=us&category=business&apiKey=152053eef9c941e094f776c1d37d4553")
     fun getRequest(@Path("path") path: String): Call<String>
 }

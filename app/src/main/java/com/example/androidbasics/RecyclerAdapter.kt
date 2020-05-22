@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_view.view.*
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 
-class RecyclerAdapter(private val items: ArrayList<UserModel.Data>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(private val items: ArrayList<DataModel.Articles>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false))
@@ -23,15 +25,19 @@ class RecyclerAdapter(private val items: ArrayList<UserModel.Data>): RecyclerVie
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        private lateinit var itemsModel: UserModel.Data
+        private lateinit var itemsModel: DataModel.Articles
         fun onBind(){
             itemsModel = items[adapterPosition]
 
-            Glide.with(itemView.userImage).load(itemsModel.avatar).into(itemView.userImage)
+            Glide.with(itemView.userImage).load(itemsModel.urlToImage).into(itemView.userImage)
 
-            itemView.userFirstName.text = itemsModel.firstName
-            itemView.userLastName.text = itemsModel.lastName
-            itemView.userEmail.text = itemsModel.email
+            itemView.postAutor.text = itemsModel.author
+
+            itemView.postTitle.text = itemsModel.title
+
+            val format = SimpleDateFormat("yyyy-MM-dd")
+            val date = format.parse(itemsModel.publishedAt)
+            itemView.postDate.text = date.toString()
 
         }
     }

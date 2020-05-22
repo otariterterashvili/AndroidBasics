@@ -2,6 +2,7 @@ package com.example.androidbasics
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.gson.Gson
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -10,7 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     private var isLoading = true
 
-    private val resDataList = ArrayList<UserModel.Data>()
+    private val resDataList = ArrayList<DataModel.Articles>()
     private lateinit var adapter: RecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,12 +26,12 @@ class MainActivity : AppCompatActivity() {
         adapter = RecyclerAdapter(resDataList)
         mainRecyclerView.adapter = adapter
 
-        DataLoader.getRequest("users", object: MainCallBack{
+        DataLoader.getRequest(object: MainCallBack{
             override fun onSuccess(res: String) {
-                isLoading=false
-                val model = Gson().fromJson(res, UserModel::class.java)
+                Log.d("resObject", res)
 
-                for (i in model.data){
+                val model = Gson().fromJson(res, DataModel::class.java)
+                for (i in model.articles){
                     resDataList.add(i)
                 }
 
